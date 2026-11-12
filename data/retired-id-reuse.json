@@ -1,0 +1,148 @@
+{
+  "kind": "schema-evolution",
+  "writer_schema": {
+    "id": 1,
+    "name": "root",
+    "type": "struct",
+    "required": true,
+    "children": [
+      {
+        "id": 2,
+        "name": "checks",
+        "type": "list",
+        "required": false,
+        "element": {
+          "id": 3,
+          "name": "item",
+          "type": "struct",
+          "required": false,
+          "children": [
+            {
+              "id": 4,
+              "name": "reading",
+              "type": "decimal",
+              "precision": 5,
+              "scale": 1,
+              "required": false
+            },
+            {
+              "id": 5,
+              "name": "labels",
+              "type": "map",
+              "required": false,
+              "key": {
+                "id": 6,
+                "name": "key",
+                "type": "string",
+                "required": true
+              },
+              "value": {
+                "id": 7,
+                "name": "value",
+                "type": "list",
+                "required": false,
+                "element": {
+                  "id": 8,
+                  "name": "tag",
+                  "type": "string",
+                  "required": false
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "id": 9,
+        "name": "station",
+        "type": "string",
+        "required": false
+      }
+    ]
+  },
+  "reader_schema": {
+    "id": 1,
+    "name": "root",
+    "type": "struct",
+    "required": true,
+    "children": [
+      {
+        "id": 2,
+        "name": "inspections",
+        "type": "list",
+        "required": false,
+        "element": {
+          "id": 3,
+          "name": "item",
+          "type": "struct",
+          "required": false,
+          "children": [
+            {
+              "id": 4,
+              "name": "reading",
+              "type": "decimal",
+              "precision": 7,
+              "scale": 2,
+              "required": false
+            },
+            {
+              "id": 5,
+              "name": "labels",
+              "type": "map",
+              "required": false,
+              "key": {
+                "id": 6,
+                "name": "key",
+                "type": "string",
+                "required": true
+              },
+              "value": {
+                "id": 7,
+                "name": "value",
+                "type": "list",
+                "required": false,
+                "element": {
+                  "id": 8,
+                  "name": "tag",
+                  "type": "string",
+                  "required": false
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "id": 9,
+        "name": "station",
+        "type": "string",
+        "required": false
+      },
+      {
+        "id": 11,
+        "name": "status",
+        "type": "string",
+        "required": false,
+        "default": "new"
+      }
+    ]
+  },
+  "retired_ids": [
+    11
+  ],
+  "files": [
+    {
+      "id": "f1",
+      "schema_id": "writer",
+      "asset": {
+        "path": "nested.jsonl",
+        "bytes": 172,
+        "sha256": "f45ee0234f5d3d377fc27db61c4ee24e8c98d3714a38dce83f5a24be1ff16ec7",
+        "rows": 3
+      }
+    }
+  ],
+  "schema_version": "sv1",
+  "current_manifest": "mf1",
+  "append_after_validation": []
+}

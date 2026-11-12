@@ -1,0 +1,7 @@
+# 嵌套ID行编码
+
+struct对象键为字段ID字符串，list保留数组序及null元素，map以string键映射value；map键ID描述类型身份但数据key不是ID字符串，value中的嵌套struct仍按ID。缺少struct字段为missing，可选无default读取为null；显式null保持null且不得用default替代。null struct不生成其子默认字段，空struct按子规则投影，所以[]、null、[null]、[{}]互异。
+
+precision/scale是decimal总位数／小数位数，原值用精确十进制字符串，禁止指数和浮点输入。兼容提升要求新scale>=旧scale且新precision-newscale>=旧precision-oldscale，不做舍入。int32->int64保留数值，bool不可当整数。全表节点ID包括root与容器element/key/value，历史retired_ids不可复用。
+
+required为true意味着该字段在非null父容器实际值中必须存在且非null；list可选元素和map可选值按自身required判断。可选改必选须对源所有行所有实际路径扫描证明；父容器null不凭空制造子实例。本材料的station有显式null和缺席，不能通过required提升。当前reader重命名checks、提升decimal并新增默认status。初始工具只校验节点形状及资产身份，不投影。
