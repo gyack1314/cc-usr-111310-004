@@ -1,0 +1,149 @@
+{
+  "kind": "schema-evolution",
+  "manifest_id": "mf-dec-bad",
+  "writer_schema": {
+    "id": 1,
+    "name": "root",
+    "type": "struct",
+    "required": true,
+    "children": [
+      {
+        "id": 2,
+        "name": "checks",
+        "type": "list",
+        "required": false,
+        "element": {
+          "id": 3,
+          "name": "item",
+          "type": "struct",
+          "required": false,
+          "children": [
+            {
+              "id": 4,
+              "name": "reading",
+              "type": "decimal",
+              "precision": 5,
+              "scale": 1,
+              "required": false
+            },
+            {
+              "id": 5,
+              "name": "labels",
+              "type": "map",
+              "required": false,
+              "key": {
+                "id": 6,
+                "name": "key",
+                "type": "string",
+                "required": true
+              },
+              "value": {
+                "id": 7,
+                "name": "value",
+                "type": "list",
+                "required": false,
+                "element": {
+                  "id": 8,
+                  "name": "tag",
+                  "type": "string",
+                  "required": false
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "id": 9,
+        "name": "station",
+        "type": "string",
+        "required": false
+      }
+    ]
+  },
+  "reader_schema": {
+    "id": 1,
+    "name": "root",
+    "type": "struct",
+    "required": true,
+    "children": [
+      {
+        "id": 2,
+        "name": "inspections",
+        "type": "list",
+        "required": false,
+        "element": {
+          "id": 3,
+          "name": "item",
+          "type": "struct",
+          "required": false,
+          "children": [
+            {
+              "id": 4,
+              "name": "reading",
+              "type": "decimal",
+              "precision": 7,
+              "scale": 2,
+              "required": false
+            },
+            {
+              "id": 5,
+              "name": "labels",
+              "type": "map",
+              "required": false,
+              "key": {
+                "id": 6,
+                "name": "key",
+                "type": "string",
+                "required": true
+              },
+              "value": {
+                "id": 7,
+                "name": "value",
+                "type": "list",
+                "required": false,
+                "element": {
+                  "id": 8,
+                  "name": "tag",
+                  "type": "string",
+                  "required": false
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "id": 9,
+        "name": "station",
+        "type": "string",
+        "required": false
+      },
+      {
+        "id": 10,
+        "name": "status",
+        "type": "string",
+        "required": false,
+        "default": "new"
+      }
+    ]
+  },
+  "retired_ids": [
+    11
+  ],
+  "files": [
+    {
+      "id": "f1",
+      "schema_id": "writer",
+      "asset": {
+        "path": "decimal-boundary-overflow.jsonl",
+        "bytes": 96,
+        "sha256": "e433c2af931f905e934fad0818a9b3fea27b0aa94db33bb4f2cc2deb760ac728",
+        "rows": 2
+      }
+    }
+  ],
+  "schema_version": "sv1",
+  "current_manifest": "mf-dec-bad",
+  "append_after_validation": []
+}
